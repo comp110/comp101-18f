@@ -36,7 +36,7 @@ if (!isProduction) {
   // to webpack-dev-server
   app.all('/dist/*', function (req, res) {
     proxy.web(req, res, {
-        target: 'http://localhost:30001'
+        target: 'http://127.0.0.1:30001'
     });
   });
 
@@ -304,15 +304,16 @@ function pathToBundle(path) {
 // server when webpack is bundling
 proxy.on('error', function(e) {
   console.log('Could not connect to proxy, please try again...');
+  console.log(e);
 });
 
 server = app.listen(port, function () {
-  console.log('Your workspace is accessible at http://localhost:' + port);
-  open(`http://localhost:${port}`);
+  console.log('Your workspace is accessible at http://127.0.0.1:' + port);
+  open(`http://127.0.0.1:${port}`);
 });
 
 server.on("error", () => {
-  open(`http://localhost:${port}`);
+  open(`http://127.0.0.1:${port}`);
   console.log("It looks like your development server is already running!");
   console.log("We're opening it up for you now...");
   console.log("To close it, press the dark 'Close' button in the top right area of the page");
