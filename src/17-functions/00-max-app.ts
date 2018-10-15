@@ -18,3 +18,5 @@ let max = (x: number, y: number): number => {
         return y;
     }
 };
+
+main();
