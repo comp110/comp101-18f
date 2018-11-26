@@ -10,52 +10,36 @@ import {
 export let scene = (): Group => {
     let shapes = new Group();
 
-    // TODO: Add a Rectangle to be the "background"
-    let background = new Rectangle(100, 100);
-    let skyBlue = new Color(0.529, 0.809, 0.922);
-    background.fill = skyBlue;
-    shapes.add(background);
+    // TODO #1: Add a Rectangle to be the "sky"
 
-    // TODO: Add a sun
-    let sun = new Circle(15, 35, 45);
-    sun.fill = new Color(0.99, 0.83, 0.25);
-    sun.stroke = Stroke.NONE;
-    shapes.add(sun);
+    // TODO #2: Add a sun
+    
+    // TODO #3: Assign fill colors to the sky and sun objects
 
-    // TODO: Add a cloud
-    shapes.add(cloud(35, 55));
+    // TODO #4: Add a cloud
 
     return shapes;
 };
 
-let cloud = (x: number, y: number): Group => {
+export let cloud = (x: number, y: number): Group => {
     let shapes = new Group();
 
-    let width = 30;
-    let height = 10;
-
-    let base = new Rectangle(width, height, x, y);
+    let base = new Rectangle(30, 10, x, y);
     shapes.add(base);
 
     let left = new Circle(7, x, y + 3);
     shapes.add(left);
 
-    let right = new Circle(5, x + width, y + height / 2);
+    let right = new Circle(5, x + 30, y + 5);
     shapes.add(right);
 
-    let center = new Circle(12, x + width / 2 - 2, y - 2);
+    let center = new Circle(12, x + 13, y - 2);
     shapes.add(center);
 
-    let topRight = new Circle(5, x + width - 4, y - 2);
+    let topRight = new Circle(5, x + 26, y - 2);
     shapes.add(topRight);
 
-    // TODO: Reset the Stroke
-    let none = new Stroke(Color.WHITE, 4);
-    topRight.stroke = none;
-    center.stroke = none;
-    right.stroke = none;
-    left.stroke = none;
-    base.stroke = none;
+    // TODO #5: Change the Stroke of each shape
 
     return shapes;
 };
